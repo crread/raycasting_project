@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\projets\scolaire\43DJV\rayTracing\projet ray tracing\Material.hpp(63): warning C4715: 'Color::operator[]' : les chemins de contrôle ne retournent pas tous une valeur
+C:\projets\scolaire\43DJV\rayTracing\projet ray tracing\Cube.hpp(26): warning C4715: 'Cube::getTextureCoordinates' : les chemins de contrôle ne retournent pas tous une valeur
+  projet ray tracing.vcxproj -> C:\projets\scolaire\43DJV\rayTracing\projet ray tracing\x64\Release\projet ray tracing.exe

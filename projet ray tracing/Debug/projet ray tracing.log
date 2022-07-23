@@ -1,0 +1,2 @@
+﻿MSVCRTD.lib(exe_winmain.obj) : error LNK2019: symbole externe non résolu _WinMain@16 référencé dans la fonction "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\projets\scolaire\43DJV\rayTracing\projet ray tracing\Debug\projet ray tracing.exe : fatal error LNK1120: 1 externes non résolus

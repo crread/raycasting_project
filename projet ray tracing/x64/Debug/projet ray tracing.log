@@ -1,0 +1,7 @@
+﻿  main.cpp
+C:\projets\scolaire\43DJV\rayTracing\projet ray tracing\Scene.hpp(13,14): error C2065: 'Object' : identificateur non déclaré
+C:\projets\scolaire\43DJV\rayTracing\projet ray tracing\Scene.hpp(13,21): error C2059: erreur de syntaxe : '>'
+C:\projets\scolaire\43DJV\rayTracing\projet ray tracing\Scene.hpp(61,3): error C2065: 'object' : identificateur non déclaré
+C:\projets\scolaire\43DJV\rayTracing\projet ray tracing\main.cpp(78,29): error C3536: 'intersection' : ne peut pas être utilisé avant d'avoir été initialisé
+C:\projets\scolaire\43DJV\rayTracing\projet ray tracing\main.cpp(79,158): error C2660: 'SDL_SetRenderDrawColor' : la fonction ne prend pas 2 arguments
+C:\projets\scolaire\43DJV\rayTracing\projet ray tracing\libs\SDL2-2.0.22\include\SDL_render.h(1071,29): message : voir la déclaration de 'SDL_SetRenderDrawColor'
