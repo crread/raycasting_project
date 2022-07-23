@@ -1,22 +1,19 @@
 #ifndef _RAY_HPP_
 #define _RAY_HPP_
 
-#include "Vector.hpp"
-#include "Point.hpp"
-
-class Ray {
+struct Ray {
 
     Vector direction;
     Point origin;
-
-public:
     
-    Ray(float ox, float oy, float oz, float vx, float vy, float vz) {
+    Ray(const float& ox,const float& oy,const float& oz,const float& vx,const float& vy,const float& vz) {
         origin = Point(ox, oy, oz);
         direction = Vector(vx, vy, vz);
     };
     
-    Ray(Point origin, Vector direction): origin(origin), direction(direction) {};
+    Ray(const Point& origin,const Vector& direction): origin(origin), direction(direction) {};
+
+    Ray normalized() const;
 
     void setDirection(const Vector& newDirection);
     Vector getDirection() const;
@@ -24,11 +21,11 @@ public:
     void setOrigin(const Point& newOrigin);
     Point getOrigin() const;
 
+    friend std::ostream& operator<<(std::ostream& os, const Ray& ray);
 };
 
 void Ray::setDirection(const Vector& newDirection) {
     direction = newDirection;
-    return;
 }
 
 Vector Ray::getDirection() const {
@@ -41,6 +38,20 @@ void Ray::setOrigin(const Point& newOrigin) {
 
 Point Ray::getOrigin() const {
     return origin;
+}
+
+Ray Ray::normalized() const {
+    return Ray(origin, direction.normalized());
+}
+
+std::ostream& operator<<(std::ostream& os, const Ray& ray) {
+
+    os << " origin " << std::endl;
+    os << ray.getOrigin();
+    os << " direction " << std::endl;
+    os << ray.getDirection();
+
+    return os;
 }
 
 #endif //_RAY_HPP_
