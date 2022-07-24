@@ -12,9 +12,6 @@ struct Scene {
 	Color ambiantColor;
 	
 	Scene() {
-
-		std::cout << "scene init..." << std::endl;
-
 		backgroundColor.r = 0.f;
 		backgroundColor.g = 0.f;
 		backgroundColor.b = 1.f;

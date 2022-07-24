@@ -51,8 +51,6 @@ void Entity::scale(const float& scale) {
     m(2, 2) = scale;
     trans = m * trans;
     transInv = trans.inverse();
-    trans.getMatrix();
-    transInv.getMatrix();
 }
 
 void Entity::rotateX(const float& deg){

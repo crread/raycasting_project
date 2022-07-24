@@ -1,1 +1,2 @@
 C:\projets\scolaire\43DJV\rayTracing\projet ray tracing\x64\Release\projet ray tracing.exe
+C:\projets\scolaire\43DJV\rayTracing\raycasting_project\projet ray tracing\x64\Release\projet ray tracing.exe

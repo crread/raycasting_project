@@ -15,22 +15,22 @@
 #include "Light.hpp"
 #include "Scene.hpp"
 
-#include "ReaderJson.hpp"
+#include "SDL_image.h"
+#include "IMG_png.c"
 
 #include <math.h>
 
 struct App {
 
     SDL_Window* window;
+    SDL_Surface* surface;
     SDL_Renderer* renderer;
     Scene* scene;
 
-    int WIDTH = 1000;
-    int HEIGHT = 1000;
+    int WIDTH = 500;
+    int HEIGHT = 500;
 
-    App() {
-        std::cout << "app built" << std::endl;
-    };
+    App() {};
     ~App();
 
     void init();
@@ -40,17 +40,17 @@ struct App {
 
 App::~App() {
     SDL_DestroyRenderer(renderer);
+    SDL_FreeSurface(surface);
     SDL_DestroyWindow(window);
     SDL_Quit();
-
-    std::cout << "App closed" << std::endl;
 }
 
 void App::init()
 {
     SDL_Init(SDL_INIT_VIDEO);
-
-    SDL_CreateWindowAndRenderer(WIDTH, HEIGHT, 0, &window, &renderer);
+    window =  SDL_CreateWindow("scene", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT,0);
+    surface = SDL_GetWindowSurface(window);
+    renderer = SDL_CreateRenderer(window, 0, 0);
 }
 
 void App::loadScene()
@@ -83,6 +83,15 @@ void App::loadScene()
     cube2->material.ks = Color(0, 0, 0.6);
     cube2->material.shininess = 0.5f;
     scene->objects.push_back(cube2);
+
+    auto plan = new Plan();
+    plan->translation(5, 0, 50);
+    plan->scale(1.0f);
+    plan->material.ka = Color(1, 0, 0);
+    plan->material.kd = Color(0.2, 0.2, 0.3);
+    plan->material.ks = Color(0, 0, 0.6);
+    plan->material.shininess = 0.8f;
+    scene->objects.push_back(plan);
 
     auto sphere1 = new Sphere();
     sphere1->material.ka = Color(0, 1, 1);
@@ -172,11 +181,11 @@ void App::renderingScene()
             else {
                 SDL_SetRenderDrawColor(renderer, backgroundColor[0] * 255, backgroundColor[1] * 255, backgroundColor[2] * 255, 255);
             }
-
             SDL_RenderDrawPoint(renderer, x, y);
         }
         SDL_RenderPresent(renderer);
     }
+
 }
 
 int main(int argc, char* argv[])
@@ -196,16 +205,21 @@ int main(int argc, char* argv[])
                 stop = true;
                 break;
             case SDL_KEYDOWN:
-                if (event.key.keysym.sym == SDLK_ESCAPE) {
+                switch (event.key.keysym.sym)
+                {
+                case SDLK_ESCAPE:
                     stop = true;
+                    break;
+                case SDLK_f:
+                    std::string fileName;
+                    std::cin >> fileName;
+                    std::cout << "file name is : " << fileName << std::endl;
+                    break;
                 }
                 break;
             }
         }
     }
-
-    //ReaderJson readerJson;
-    //readerJson.getJsonContent();
 
     return 0;
 }

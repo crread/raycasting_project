@@ -27,7 +27,6 @@ public:
     Matrix<T> operator* (const Matrix<T>& matrix) const;
     friend Vector operator* (const Vector& vector, const Matrix<T>& matrix);
     friend Point operator* (const Point& point, const Matrix<T>& matrix);
-    void getMatrix() const;
     Matrix<T> inverse() const;
 };
 
@@ -277,14 +276,5 @@ Matrix<T> Matrix<T>::inverse() const {
 
     return invMatrix;
 };
-
-template<typename T>
-void Matrix<T>::getMatrix() const{
-
-    std::cout << values[0] << " " << values[1] << " " << values[2] << " " << values[3] << std::endl;
-    std::cout << values[4] << " " << values[5] << " " << values[6] << " " << values[7] << std::endl;
-    std::cout << values[8] << " " << values[9] << " " << values[10] << " " << values[11] << std::endl;
-    std::cout << values[12] << " " << values[13] << " " << values[14] << " " << values[15] << std::endl;
-}
 
 #endif //_MATRIX_HPP_

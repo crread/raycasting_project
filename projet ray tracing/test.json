@@ -1,0 +1,32 @@
+{
+    "articles" :
+    [
+        {
+            "test" : [
+                {"type": "light"},
+                {"title" : "This article is awesome"},
+                {"content" : "This is a great content from everywhere"},
+                {"likes" : 26},
+                {"dislike" : 12},
+                {"test" : "blablabla"}
+            ]
+        },
+        {
+            "plane" : [
+                {"title" : "This article is bad"},
+                {"content" : "This article is lower quality"},
+                {"likes" : 2},
+                {"dislike" : 24}
+            ]
+        },
+        {
+            "cube" : [
+                {"type": "light"},
+                {"title" : "This article is cool"},
+                {"content" : "not that bad"},
+                {"likes" : 5},
+                {"dislike" : 5}
+            ]
+        }
+    ]
+}
